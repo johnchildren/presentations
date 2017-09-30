@@ -3,7 +3,7 @@ let
 
   stdenv = pkgs.stdenv;
   texlive = pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-medium beamer; 
+    inherit (pkgs.texlive) scheme-small beamer; 
   };
   pandoc = pkgs.pandoc;
 in rec {
