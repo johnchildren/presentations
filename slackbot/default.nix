@@ -5,7 +5,7 @@ stdenv.mkDerivation {
   src = ./.;
 
   buildPhase = ''
-    pandoc -t beamer --highlight-style=pygments -H theme.tex -o slides.pdf slides.md
+    pandoc -t beamer -V theme:Rochester -V colortheme:lily -o slides.pdf slides.md
   '';
 
   installPhase = ''

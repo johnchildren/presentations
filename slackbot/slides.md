@@ -27,9 +27,9 @@ I spend a lot of time on Slack so anything that makes it more enjoyable is good.
 - Can have silly names.
 - Are able to process messages however you want.
 
-# DavidHunt
+# DavidHunt {.shrink}
 
-``` python
+~~~ python
 import time
 import slackclient
 
@@ -52,7 +52,11 @@ while True:
             reply = "Whoops! Didn't you mean @duncan?"
             client.rtm_send_message(channel, reply)
     time.sleep(1)
-```
+~~~
+
+# RTM API
+
+- Explain how it works
 
 # Retrospective
 
@@ -83,14 +87,21 @@ reply = random.choice(QUOTES)
 - Single features can be expressed as functions with decorators.
 
 # Real or Not Real
-``` python
+
+~~~ python
 @respond_to("is (.*) a real number", re.IGNORECASE)
 def real_or_not_real(message, number):
     try:
-        message.reply('yes, {} is a real number'.format(float(number)))
+        message.reply(
+            'yes, {} is a real number'
+                .format(float(number)))
     except:
-        message.reply('no, {} is not a real number'.format(number))
-```
+        message.reply(
+            'no, {} is not a real number'
+                .format(number))
+~~~
+
+# Party Mode
 
 # Markov Chains
 
@@ -134,6 +145,34 @@ Let's make it cultured. Collect text files for:
 - "You're gonna take this kid to the top."
 - "I'm just a little bee!"
 
+# Slash Commands
+
+- Markov Chains are cool but not very interactive.
+- We could do the same thing with a slash command.
+- But: We don't want to just handle raw requests ourselves!
+
+# Linklater
+
+- Haskell library for interacting with slack apis.
+- Supports both rtm clients and slash commands.
+
+#
+
+
 #
 
 ![Too far](images/gone_too_far.jpg)
+
+# Ideas for more annoying bots
+
+- Insult generation and delivery
+- Just writes the word "Buzz" after a random period.
+- Direct messages everything you tweet to your colleagues.
+- Sends 3 laugh till crying emojis everytime someone says "lol".
+
+# Ideas for helpful bots
+
+- Welcomes new starters to a channel and sends resources.
+- Voting on pubs (you can even do AV!).
+- Execute arbitrary embedded code snippets (good luck).
+- Randomize lunch venues.
