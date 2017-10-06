@@ -8,9 +8,17 @@ date: September 2017
 
 IRC for hipsters with gifs.
 
+- picture of slack and describe what it is
+- talk about chat interface
+
+# What is a bot
+
+- describe bots
+
 # Motivation
 
 I spend a lot of time on Slack so anything that makes it more enjoyable is good.
+ set scene more
 
 # Custom Responses
 
@@ -26,6 +34,8 @@ I spend a lot of time on Slack so anything that makes it more enjoyable is good.
 - Join channels only on invitation.
 - Can have silly names.
 - Are able to process messages however you want.
+
+add image of robot?
 
 # DavidHunt {.shrink}
 
@@ -54,18 +64,26 @@ while True:
     time.sleep(1)
 ~~~
 
+describe scenario
+show functionality not code
+break into 3 or 4 slides
+show bot first
+
 # RTM API
 
 - Explain how it works
+more inclusive language
 
 # Retrospective
 
+remove this one
 - Pretty basic but it means we can control what channel the reponses happen in.
 - Can be turned on and off by just running the bot on a personal machine.
 - Potentially could be deployed to AWS easily if needed. 
 
 # Quotes
 
+more gifs
 ``` python
 import random
 
@@ -76,9 +94,11 @@ reply = random.choice(QUOTES)
 
 # Retrospective
 
+lets amp it up
 - Now we can do everything custom responses can do.
 - Still quite limited in what we can do.
 - Let's do something slackbot can't.
+
 
 # SlackBot Library
 
@@ -88,6 +108,10 @@ reply = random.choice(QUOTES)
 
 # Real or Not Real
 
+logic diagram
+not funny
+shopping list
+logic diagram
 ~~~ python
 @respond_to("is (.*) a real number", re.IGNORECASE)
 def real_or_not_real(message, number):
@@ -169,6 +193,7 @@ Let's make it cultured. Collect text files for:
 - Just writes the word "Buzz" after a random period.
 - Direct messages everything you tweet to your colleagues.
 - Sends 3 laugh till crying emojis everytime someone says "lol".
+- Pings people if you spell their name approximately correctly.
 
 # Ideas for helpful bots
 
