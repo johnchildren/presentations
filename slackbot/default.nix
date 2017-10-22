@@ -13,6 +13,7 @@ stdenv.mkDerivation {
     mkdir -p $out
     cp slides.pdf $out
     cp slides.html $out
+    cp -r images/ $out
     cp -r ${revealjs}/reveal.js/ $out
   '';
 
