@@ -1,15 +1,21 @@
 let
-  pkgs = import <nixpkgs> {};
-
-  stdenv = pkgs.stdenv;
-  fetchurl = pkgs.fetchurl;
-  texlive = pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-small beamer; 
+  pkgs = import ./nix/nixpkgs-pinned.nix {};
+in with pkgs; let
+  custom_texlive = texlive.combine {
+    inherit (texlive)
+    scheme-small
+    noto
+    mweights
+    cm-super
+    cmbright
+    fontaxes
+    beamer;
   };
-  pandoc = pkgs.pandoc;
-  revealjs = import ./revealjs.nix { inherit stdenv fetchurl; };
-in rec {
+  revealjs = callPackage ./nix/revealjs.nix {};
+in buildEnv {
   name = "presentations";
 
-  slackbot = import ./slackbot/default.nix { inherit stdenv texlive pandoc revealjs; };
+  paths = let
+    slackbot = callPackage ./talks/slackbot/default.nix { inherit revealjs; texlive = custom_texlive; };
+  in [ slackbot ];
 }
