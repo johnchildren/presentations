@@ -9,6 +9,8 @@ in with pkgs; let
     cm-super
     cmbright
     fontaxes
+    listings
+    hfbright
     beamer;
   };
   revealjs = callPackage ./nix/revealjs.nix {};
@@ -17,5 +19,6 @@ in buildEnv {
 
   paths = let
     slackbot = callPackage ./talks/slackbot/default.nix { inherit revealjs; texlive = custom_texlive; };
-  in [ slackbot ];
+    dbextensions = callPackage ./talks/dbextensions/default.nix { texlive = custom_texlive; };
+  in [ slackbot dbextensions ];
 }
